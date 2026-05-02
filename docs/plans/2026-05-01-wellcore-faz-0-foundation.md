@@ -2,7 +2,7 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Stand up an empty-but-runnable Wellcore monorepo: API replies `{ ok: true }` on `/health`, Expo app boots into a themed splash with TR/EN locale switching, all wired through `pnpm dev`.
+**Goal:** Stand up an empty-but-runnable Wellcore monorepo: API replies `{ ok: true }` on `/health`, Expo app boots into a themed dev splash in EN with Wellcore fonts/theme rendering correctly, all wired through `pnpm dev`. (Dev splash includes an EN↔TR sanity toggle to prove i18n bundling works; that toggle is scaffolding only — the production onboarding from Faz 3 onward is EN-only in v1.)
 
 **Architecture:** pnpm workspaces + Turborepo. Three workspace targets (`apps/api`, `apps/mobile`, `packages/shared`). API is Hono on Bun runtime (Bun chosen over Node for native TypeScript + faster cold start; Dokploy supports Bun via Dockerfile). Mobile is Expo SDK 55 with Expo Router. Shared package exposes Zod schemas + Hono `AppType` for end-to-end RPC types. Postgres + MinIO run locally via Docker Compose.
 
@@ -13,7 +13,7 @@
 - `pnpm dev` starts API (port 3000) + Mobile (Expo dev server) + DB containers in parallel.
 - `curl http://localhost:3000/health` → `{"ok":true,"version":"0.0.0"}`.
 - Expo app launches on iOS simulator: warm-paper background, Atrium mark + "wellcore" italic wordmark + tagline rendered with Newsreader + Inter fonts loaded.
-- Tapping a "TR/EN" toggle on dev splash flips wordmark caption between Turkish and English.
+- Tapping the EN↔TR dev sanity toggle on the splash flips the tagline live (proves both locale resources bundle correctly; toggle is removed when real onboarding ships).
 - API has one passing Vitest test for `/health`.
 - Drizzle migration scaffold exists; `pnpm db:push` (against local docker Postgres) succeeds with empty schema.
 - Mobile typechecks (`pnpm typecheck`); API typechecks; shared package typechecks.
@@ -1299,7 +1299,13 @@ git commit -m "feat(mobile): load Newsreader + Inter via expo-google-fonts"
 
 ---
 
-## Task 10: i18n — i18next + TR/EN locales
+## Task 10: i18n — i18next, EN primary, TR retained in codebase
+
+> **Note (post-v2 design pivot):** Wellcore is US-primary. EN (US English) is
+> the default and the only locale exposed to users in v1. The `tr.json` file
+> is created and kept in the repo (no UI affordance to switch to TR), so
+> future locale work has a starting point and dev-only toggles can flip to TR
+> for QA. Device language detection is disabled — we always start in EN.
 
 **Files:**
 - Modify: `apps/mobile/package.json` (add i18next deps)
@@ -1357,18 +1363,14 @@ Run `pnpm install`.
 import "intl-pluralrules";
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-import { getLocales } from "expo-localization";
 
 import en from "./locales/en.json";
 import tr from "./locales/tr.json";
 
-const SUPPORTED = ["tr", "en"] as const;
+// US-primary launch. TR resources are bundled but not user-selectable in v1.
+// Dev/QA can flip via i18next.changeLanguage("tr") at runtime.
+const SUPPORTED = ["en", "tr"] as const;
 type Lang = (typeof SUPPORTED)[number];
-
-function detectLanguage(): Lang {
-  const device = getLocales()[0]?.languageCode ?? "en";
-  return (SUPPORTED as readonly string[]).includes(device) ? (device as Lang) : "en";
-}
 
 void i18next.use(initReactI18next).init({
   compatibilityJSON: "v4",
@@ -1376,7 +1378,7 @@ void i18next.use(initReactI18next).init({
     en: { translation: en },
     tr: { translation: tr },
   },
-  lng: detectLanguage(),
+  lng: "en",
   fallbackLng: "en",
   interpolation: { escapeValue: false },
   returnNull: false,
@@ -1408,7 +1410,7 @@ Expected: passes.
 
 ```bash
 git add apps/mobile/package.json apps/mobile/src/i18n apps/mobile/app/_layout.tsx pnpm-lock.yaml
-git commit -m "feat(mobile): i18next with TR + EN locales, device-locale detection"
+git commit -m "feat(mobile): i18next with EN primary, TR bundled but hidden in v1"
 ```
 
 ---
@@ -1827,7 +1829,7 @@ gh pr create --title "Faz 0: Wellcore foundation" --body "$(cat <<'EOF'
 - Hono API on Bun with /health endpoint + Vitest
 - Drizzle ORM scaffold
 - Docker Compose for Postgres + MinIO
-- Expo SDK 55 mobile app with Wellcore theme tokens, Newsreader + Inter fonts, i18next (TR/EN)
+- Expo SDK 55 mobile app with Wellcore theme tokens, Newsreader + Inter fonts, i18next (EN primary, TR bundled but hidden)
 - End-to-end Hono RPC types from API to mobile
 - Dockerfile + Dokploy deploy notes
 - CI: typecheck + tests on push/PR
