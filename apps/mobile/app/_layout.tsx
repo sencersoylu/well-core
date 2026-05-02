@@ -1,3 +1,4 @@
+import "../src/i18n/index.js";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
