@@ -10,14 +10,20 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "clean": "rm -rf dist .turbo"
+    "clean": "rm -rf dist .turbo",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@wellcore/shared": "workspace:*",
-    "hono": "^4.6.0"
+    "drizzle-orm": "^0.36.0",
+    "hono": "^4.6.0",
+    "postgres": "^3.4.5"
   },
   "devDependencies": {
     "@types/bun": "^1.1.13",
+    "drizzle-kit": "^0.28.0",
     "typescript": "^5.5.4",
     "vitest": "^2.1.0"
   }
