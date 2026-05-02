@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
 import { i18next, type Lang } from "../src/i18n/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
 import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
+import { api } from "../src/api/client.js";
 
 export default function Index() {
   const { t } = useTranslation();
@@ -14,6 +15,20 @@ export default function Index() {
     void i18next.changeLanguage(next);
     setLang(next);
   };
+
+  const [health, setHealth] = useState<"loading" | "ok" | "fail">("loading");
+
+  useEffect(() => {
+    let cancelled = false;
+    api.health.$get()
+      .then(async (res) => {
+        if (cancelled) return;
+        const body = await res.json();
+        setHealth(body.ok ? "ok" : "fail");
+      })
+      .catch(() => !cancelled && setHealth("fail"));
+    return () => { cancelled = true; };
+  }, []);
 
   return (
     <View style={styles.root}>
@@ -26,6 +41,9 @@ export default function Index() {
       <Pressable accessibilityRole="button" onPress={toggle} style={styles.toggle}>
         <Text style={styles.toggleText}>{lang.toUpperCase()} → {lang === "tr" ? "EN" : "TR"}</Text>
       </Pressable>
+      <Text style={[styles.toggleText, { color: health === "ok" ? Colors.positive : Colors.ink3, marginTop: Spacing.md }]}>
+        api: {health}
+      </Text>
     </View>
   );
 }
