@@ -11,6 +11,8 @@
     "clean": "rm -rf .expo .turbo"
   },
   "dependencies": {
+    "@expo-google-fonts/inter": "^0.2.3",
+    "@expo-google-fonts/newsreader": "^0.2.3",
     "@wellcore/shared": "workspace:*",
     "expo": "~55.0.19",
     "expo-constants": "~55.0.15",

@@ -45,6 +45,12 @@ importers:
 
   apps/mobile:
     dependencies:
+      '@expo-google-fonts/inter':
+        specifier: ^0.2.3
+        version: 0.2.3
+      '@expo-google-fonts/newsreader':
+        specifier: ^0.2.3
+        version: 0.2.3
       '@wellcore/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -1044,8 +1050,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@expo-google-fonts/inter@0.2.3':
+    resolution: {integrity: sha512-iHK9FI+dnE45X5c2Z5hSFwNH4zUWethizpbv3XUn0FIGw5jwvzriENz0a6wCdkI4/d+1QkurnHo5XHti7TbNJA==}
+
   '@expo-google-fonts/material-symbols@0.4.34':
     resolution: {integrity: sha512-PdwETUhvu1gHF1e8eIyEHnBJLq/dRNoTrT5yhsGUfGyRxH5pbm54dF3+QPknxwMKj0M1trN7PSelYz+yzlt3lA==}
+
+  '@expo-google-fonts/newsreader@0.2.3':
+    resolution: {integrity: sha512-SRt9b4JZdowtA7Pu/Dde44BDEDqGH0diTBrEAhtol+Z4Oti1ZQeQnGNs00RfGy3gNb+HP2Gih7OjcVUTwolgqw==}
 
   '@expo/cli@55.0.27':
     resolution: {integrity: sha512-FF/qWyHikqvVd5GBDiLII2PRgToNGz5MjxHw76a7aufbe5kCRpAqAy7HRoio1PlF5g9UIYnFjs333a3fWTlgMw==}
@@ -4945,7 +4957,11 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
+  '@expo-google-fonts/inter@0.2.3': {}
+
   '@expo-google-fonts/material-symbols@0.4.34': {}
+
+  '@expo-google-fonts/newsreader@0.2.3': {}
 
   '@expo/cli@55.0.27(@expo/dom-webview@55.0.5)(@expo/metro-runtime@55.0.10)(expo-constants@55.0.15)(expo-font@55.0.6)(expo-router@55.0.13)(expo@55.0.19)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.6(@babel/core@7.29.0)(@react-native/metro-config@0.85.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)(typescript@5.9.3)':
     dependencies:
