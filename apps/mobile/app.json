@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Wellcore",
+    "slug": "wellcore",
+    "scheme": "wellcore",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f6f4ef"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sencersoylu.wellcore",
+      "buildNumber": "1",
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.sencersoylu.wellcore",
+      "versionCode": 1,
+      "edgeToEdgeEnabled": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#f6f4ef"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-secure-store",
+      ["expo-splash-screen", {
+        "backgroundColor": "#f6f4ef",
+        "image": "./assets/splash-icon.png",
+        "imageWidth": 200
+      }]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@wellcore/mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "dev": "expo start",
+    "ios": "expo run:ios",
+    "android": "expo run:android",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .expo .turbo"
+  },
+  "dependencies": {
+    "@wellcore/shared": "workspace:*",
+    "expo": "~55.0.19",
+    "expo-constants": "~55.0.15",
+    "expo-font": "~55.0.6",
+    "expo-linear-gradient": "~55.0.13",
+    "expo-linking": "~55.0.14",
+    "expo-localization": "~55.0.13",
+    "expo-router": "~55.0.13",
+    "expo-secure-store": "~55.0.13",
+    "expo-splash-screen": "~55.0.19",
+    "expo-status-bar": "~55.0.5",
+    "expo-system-ui": "~55.0.16",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.6",
+    "react-native-gesture-handler": "~2.30.0",
+    "react-native-reanimated": "4.2.1",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-screens": "~4.23.0",
+    "react-native-svg": "15.15.3"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.0",
+    "typescript": "^5.5.4"
+  }
+}
