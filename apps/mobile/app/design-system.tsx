@@ -6,6 +6,7 @@ import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
 import { Ring } from "../src/components/brand/Ring.js";
 import { TripleRing } from "../src/components/brand/TripleRing.js";
 import { HeroGradient } from "../src/components/brand/HeroGradient.js";
+import * as Icons from "../src/components/icons/index.js";
 
 export default function DesignSystem() {
   return (
@@ -52,6 +53,17 @@ export default function DesignSystem() {
         <HeroGradient bloom style={{ height: 180, borderRadius: 24 }}>
           <View style={{ flex: 1 }} />
         </HeroGradient>
+      </Section>
+
+      <Section title="Icons">
+        <View style={styles.row}>
+          {Object.entries(Icons).map(([name, Icon]) => (
+            <View key={name} style={{ alignItems: "center", gap: 4, width: 64 }}>
+              <Icon size={22} color={Colors.ink} />
+              <Text style={{ ...TextStyles.caption, color: Colors.ink3, fontSize: 10 }}>{name.replace("Icon", "")}</Text>
+            </View>
+          ))}
+        </View>
       </Section>
     </ScrollView>
   );
