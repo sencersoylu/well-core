@@ -13,6 +13,7 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/newsreader": "^0.2.3",
+    "@gorhom/bottom-sheet": "^5.0.0",
     "@wellcore/api": "workspace:*",
     "@wellcore/shared": "workspace:*",
     "hono": "^4.6.0",

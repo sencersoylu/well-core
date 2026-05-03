@@ -7,6 +7,7 @@ import { Ring } from "../src/components/brand/Ring.js";
 import { TripleRing } from "../src/components/brand/TripleRing.js";
 import { HeroGradient } from "../src/components/brand/HeroGradient.js";
 import * as Icons from "../src/components/icons/index.js";
+import { CitedText } from "../src/components/data/CitedText.js";
 
 export default function DesignSystem() {
   return (
@@ -63,6 +64,17 @@ export default function DesignSystem() {
               <Text style={{ ...TextStyles.caption, color: Colors.ink3, fontSize: 10 }}>{name.replace("Icon", "")}</Text>
             </View>
           ))}
+        </View>
+      </Section>
+
+      <Section title="CitedText">
+        <View style={{ paddingHorizontal: Spacing.md }}>
+          <Text style={{ ...TextStyles.body, color: Colors.ink2 }}>
+            <CitedText source="hbo-cd34-thom-2006" index={1}>
+              HBOT users in clinical studies show roughly an eightfold increase in circulating stem cells
+            </CitedText>
+            .
+          </Text>
         </View>
       </Section>
     </ScrollView>
