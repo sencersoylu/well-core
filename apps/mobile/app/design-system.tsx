@@ -12,6 +12,7 @@ import { CitedText } from "../src/components/data/CitedText.js";
 import { EvidenceDot } from "../src/components/data/EvidenceDot.js";
 import { ChamberTypeSelector, type ChamberType } from "../src/components/onboarding/ChamberTypeSelector.js";
 import { FireSafetySlide } from "../src/components/onboarding/FireSafetySlide.js";
+import { CrisisResourcesScreen } from "../src/components/onboarding/CrisisResourcesScreen.js";
 
 export default function DesignSystem() {
   const [chamber, setChamber] = useState<ChamberType | null>(null);
@@ -113,6 +114,10 @@ export default function DesignSystem() {
         <View style={{ height: 520, borderRadius: Radius.xl, overflow: "hidden" }}>
           <FireSafetySlide />
         </View>
+      </Section>
+
+      <Section title="CrisisResourcesScreen">
+        <CrisisResourcesScreen />
       </Section>
     </ScrollView>
   );
