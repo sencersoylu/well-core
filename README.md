@@ -34,3 +34,25 @@ pnpm infra:down
 
 See `docs/plans/` for design docs and phase plans.
 `ops/dokploy.md` for deployment notes.
+
+## Design system showcase
+
+Faz 1 ships every brand primitive at the dev-only `/design-system` route.
+
+```bash
+pnpm exec --filter @wellcore/mobile expo start --port 8090
+# in the simulator, type `wellcore://design-system` or navigate via deep link
+```
+
+Primitives included:
+- Brand: `WellcoreMark` (xs/sm/md/lg/xl), `WellcoreWordmark`, `Ring`, `TripleRing`, `HeroGradient`
+- Data: `CitedText` with bottom-sheet `CitationModal`, `EvidenceDot` (●●● / ●●○ / ●○○)
+- Onboarding: `ChamberTypeSelector`, `FireSafetySlide`, `CrisisResourcesScreen`
+- 13-icon line set
+- Citations data: `@wellcore/shared/citations` (zod-validated, 3 vitest tests)
+
+To regenerate Atrium app assets from SVG:
+
+```bash
+pnpm gen:assets
+```
