@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
 import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
+import { Ring } from "../src/components/brand/Ring.js";
 
 export default function DesignSystem() {
   return (
@@ -26,6 +27,16 @@ export default function DesignSystem() {
         <WellcoreWordmark size="lg" />
         <WellcoreWordmark size="md" italic={false} />
         <WellcoreWordmark size="md" showMark={false} />
+      </Section>
+
+      <Section title="Ring (single, animated)">
+        <View style={styles.row}>
+          <Ring value={0.78} color={Colors.recovery}>
+            <Text style={{ ...TextStyles.h2, color: Colors.ink }}>78</Text>
+          </Ring>
+          <Ring value={0.42} color={Colors.adherence} size={96} stroke={8} />
+          <Ring value={0.62} color={Colors.vitality} size={80} stroke={6} />
+        </View>
       </Section>
     </ScrollView>
   );
