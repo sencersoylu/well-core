@@ -4,6 +4,7 @@ import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
 import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
 import { Ring } from "../src/components/brand/Ring.js";
+import { TripleRing } from "../src/components/brand/TripleRing.js";
 
 export default function DesignSystem() {
   return (
@@ -37,6 +38,10 @@ export default function DesignSystem() {
           <Ring value={0.42} color={Colors.adherence} size={96} stroke={8} />
           <Ring value={0.62} color={Colors.vitality} size={80} stroke={6} />
         </View>
+      </Section>
+
+      <Section title="TripleRing — Adherence / Recovery / Vitality">
+        <TripleRing adherence={0.84} recovery={0.62} vitality={0.71} />
       </Section>
     </ScrollView>
   );
