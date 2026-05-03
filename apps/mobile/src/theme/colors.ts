@@ -29,6 +29,16 @@ export const Colors = {
   // Semantic
   positive: "#5b8c7b",
   negative: "#c66a5b",
+
+  // Disclaimer / advisory palette (used in FireSafetySlide, CrisisResources)
+  disclaimerBg: "#fdf3e7",
+  disclaimerText: "#7a3e0a",
+  disclaimerBorder: "rgba(122, 62, 10, 0.18)",
+
+  // Crisis / red-flag palette
+  crisisBg: "#fbe9e6",
+  crisisText: "#8a2418",
+  crisisBorder: "rgba(138, 36, 24, 0.22)",
 } as const;
 
 export type ColorToken = keyof typeof Colors;
@@ -37,3 +47,11 @@ export const Gradients = {
   hero: ["#f4d6c0", "#e9c8d5", "#c8d8e4"] as const,
   paperBloom: ["#f7e7d8", "#f6f4ef"] as const,
 } as const;
+
+export const RingColors = {
+  adherence: { fill: Colors.adherence, track: Colors.hairline },
+  recovery:  { fill: Colors.recovery,  track: Colors.hairline },
+  vitality:  { fill: Colors.vitality,  track: Colors.hairline },
+} as const;
+
+export type RingKind = keyof typeof RingColors;
