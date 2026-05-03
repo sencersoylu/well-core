@@ -1,4 +1,5 @@
 import { ScrollView, Text, View, StyleSheet } from "react-native";
+import { useState } from "react";
 import type { ReactNode } from "react";
 import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
@@ -9,8 +10,11 @@ import { HeroGradient } from "../src/components/brand/HeroGradient.js";
 import * as Icons from "../src/components/icons/index.js";
 import { CitedText } from "../src/components/data/CitedText.js";
 import { EvidenceDot } from "../src/components/data/EvidenceDot.js";
+import { ChamberTypeSelector, type ChamberType } from "../src/components/onboarding/ChamberTypeSelector.js";
 
 export default function DesignSystem() {
+  const [chamber, setChamber] = useState<ChamberType | null>(null);
+
   return (
     <ScrollView style={styles.root} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Design system</Text>
@@ -98,6 +102,10 @@ export default function DesignSystem() {
             <Text style={styles.captionLabel}>absent</Text>
           </View>
         </View>
+      </Section>
+
+      <Section title="ChamberTypeSelector">
+        <ChamberTypeSelector value={chamber} onChange={setChamber} />
       </Section>
     </ScrollView>
   );
