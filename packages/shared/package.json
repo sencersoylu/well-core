@@ -7,16 +7,20 @@
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./env": "./src/env.ts"
+    "./env": "./src/env.ts",
+    "./citations": "./src/citations.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf .turbo *.tsbuildinfo"
+    "clean": "rm -rf .turbo *.tsbuildinfo",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.0"
   }
 }
