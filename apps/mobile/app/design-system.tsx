@@ -5,6 +5,7 @@ import { WellcoreMark } from "../src/components/WellcoreMark.js";
 import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
 import { Ring } from "../src/components/brand/Ring.js";
 import { TripleRing } from "../src/components/brand/TripleRing.js";
+import { HeroGradient } from "../src/components/brand/HeroGradient.js";
 
 export default function DesignSystem() {
   return (
@@ -42,6 +43,15 @@ export default function DesignSystem() {
 
       <Section title="TripleRing — Adherence / Recovery / Vitality">
         <TripleRing adherence={0.84} recovery={0.62} vitality={0.71} />
+      </Section>
+
+      <Section title="HeroGradient">
+        <HeroGradient style={{ height: 140, borderRadius: 24 }}>
+          <View style={{ flex: 1 }} />
+        </HeroGradient>
+        <HeroGradient bloom style={{ height: 180, borderRadius: 24 }}>
+          <View style={{ flex: 1 }} />
+        </HeroGradient>
       </Section>
     </ScrollView>
   );
