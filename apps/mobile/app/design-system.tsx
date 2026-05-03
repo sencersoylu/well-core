@@ -2,6 +2,7 @@ import { ScrollView, Text, View, StyleSheet } from "react-native";
 import type { ReactNode } from "react";
 import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
+import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
 
 export default function DesignSystem() {
   return (
@@ -17,6 +18,14 @@ export default function DesignSystem() {
           <WellcoreMark size="lg" />
           <WellcoreMark size="xl" />
         </View>
+      </Section>
+
+      <Section title="Wordmark">
+        <WellcoreWordmark size="sm" />
+        <WellcoreWordmark size="md" />
+        <WellcoreWordmark size="lg" />
+        <WellcoreWordmark size="md" italic={false} />
+        <WellcoreWordmark size="md" showMark={false} />
       </Section>
     </ScrollView>
   );
