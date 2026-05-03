@@ -1,0 +1,11 @@
+{
+  "brand": {
+    "name": "wellcore",
+    "tagline": "Pressure into clarity. One breath at a time."
+  },
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "skip": "Skip"
+  }
+}

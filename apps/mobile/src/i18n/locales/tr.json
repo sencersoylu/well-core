@@ -1,0 +1,11 @@
+{
+  "brand": {
+    "name": "wellcore",
+    "tagline": "Berraklığa basınç. Birer nefeste."
+  },
+  "common": {
+    "continue": "Devam et",
+    "back": "Geri",
+    "skip": "Atla"
+  }
+}
