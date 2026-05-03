@@ -1,7 +1,7 @@
 import { ScrollView, Text, View, StyleSheet } from "react-native";
 import { useState } from "react";
 import type { ReactNode } from "react";
-import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
+import { Colors, Spacing, TextStyles, Radius } from "../src/theme/index.js";
 import { WellcoreMark } from "../src/components/WellcoreMark.js";
 import { WellcoreWordmark } from "../src/components/brand/WellcoreWordmark.js";
 import { Ring } from "../src/components/brand/Ring.js";
@@ -11,6 +11,7 @@ import * as Icons from "../src/components/icons/index.js";
 import { CitedText } from "../src/components/data/CitedText.js";
 import { EvidenceDot } from "../src/components/data/EvidenceDot.js";
 import { ChamberTypeSelector, type ChamberType } from "../src/components/onboarding/ChamberTypeSelector.js";
+import { FireSafetySlide } from "../src/components/onboarding/FireSafetySlide.js";
 
 export default function DesignSystem() {
   const [chamber, setChamber] = useState<ChamberType | null>(null);
@@ -106,6 +107,12 @@ export default function DesignSystem() {
 
       <Section title="ChamberTypeSelector">
         <ChamberTypeSelector value={chamber} onChange={setChamber} />
+      </Section>
+
+      <Section title="FireSafetySlide">
+        <View style={{ height: 520, borderRadius: Radius.xl, overflow: "hidden" }}>
+          <FireSafetySlide />
+        </View>
       </Section>
     </ScrollView>
   );
