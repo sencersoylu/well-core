@@ -8,6 +8,7 @@ import { TripleRing } from "../src/components/brand/TripleRing.js";
 import { HeroGradient } from "../src/components/brand/HeroGradient.js";
 import * as Icons from "../src/components/icons/index.js";
 import { CitedText } from "../src/components/data/CitedText.js";
+import { EvidenceDot } from "../src/components/data/EvidenceDot.js";
 
 export default function DesignSystem() {
   return (
@@ -77,6 +78,27 @@ export default function DesignSystem() {
           </Text>
         </View>
       </Section>
+
+      <Section title="EvidenceDot">
+        <View style={styles.row}>
+          <View style={{ alignItems: "center", gap: 4 }}>
+            <EvidenceDot level="strong" />
+            <Text style={styles.captionLabel}>strong</Text>
+          </View>
+          <View style={{ alignItems: "center", gap: 4 }}>
+            <EvidenceDot level="moderate" />
+            <Text style={styles.captionLabel}>moderate</Text>
+          </View>
+          <View style={{ alignItems: "center", gap: 4 }}>
+            <EvidenceDot level="weak" />
+            <Text style={styles.captionLabel}>weak</Text>
+          </View>
+          <View style={{ alignItems: "center", gap: 4 }}>
+            <EvidenceDot level="absent" />
+            <Text style={styles.captionLabel}>absent</Text>
+          </View>
+        </View>
+      </Section>
     </ScrollView>
   );
 }
@@ -96,4 +118,5 @@ const styles = StyleSheet.create({
   title: { ...TextStyles.h1, color: Colors.ink },
   subtitle: { ...TextStyles.body, color: Colors.ink3 },
   row: { flexDirection: "row", alignItems: "center", gap: Spacing.md, flexWrap: "wrap" },
+  captionLabel: { ...TextStyles.caption, color: Colors.ink3, fontSize: 10 },
 });
