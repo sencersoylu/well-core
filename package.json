@@ -15,10 +15,12 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
     "infra:up": "docker compose -f ops/docker-compose.yml up -d",
-    "infra:down": "docker compose -f ops/docker-compose.yml down"
+    "infra:down": "docker compose -f ops/docker-compose.yml down",
+    "gen:assets": "bun run tools/gen-assets.ts"
   },
   "devDependencies": {
     "turbo": "^2.3.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "sharp": "^0.33.5"
   }
 }

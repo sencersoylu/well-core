@@ -1,0 +1,35 @@
+{
+  "hbo-plasma-1500": {
+    "title": "HBOT increases plasma-dissolved oxygen",
+    "phrasing_en": "At 2.4 ATA breathing 100% oxygen, plasma-dissolved oxygen rises ~17-fold over normal air; at 1.3 ATA breathing ambient air the rise is ~1.4-fold.",
+    "what_it_does_not_show": "Plasma O₂ increase does not by itself imply clinical benefit at any pressure.",
+    "source": {
+      "authors": "Mathieu D. (ed.)",
+      "year": 2006,
+      "journal": "Handbook on Hyperbaric Medicine",
+      "doi": "10.1007/1-4020-4448-8"
+    }
+  },
+  "hbo-cd34-thom-2006": {
+    "title": "Stem cell mobilization (CD34+) ~8-fold after 20 sessions at 2.0 ATA",
+    "phrasing_en": "Adults completing 20 sessions of HBOT at 2.0 ATA showed an ~8× increase in circulating CD34+ stem cells (Thom 2006).",
+    "what_it_does_not_show": "The study used 2.0 ATA hard chambers; effects at 1.3 ATA mild chambers are not established.",
+    "source": {
+      "authors": "Thom SR, et al.",
+      "year": 2006,
+      "journal": "Am J Physiol Heart Circ Physiol",
+      "doi": "10.1152/ajpheart.00888.2005"
+    }
+  },
+  "long-covid-zilberman-2022": {
+    "title": "HBOT improves cognitive and physical symptoms in post-COVID-19 condition",
+    "phrasing_en": "In a sham-controlled RCT, 40 sessions at 2.0 ATA improved cognition, fatigue, and quality of life vs. sham (Zilberman-Itskovich 2022).",
+    "what_it_does_not_show": "Pressure was 2.0 ATA — efficacy at 1.3 ATA mild chambers is not established. Symptoms returned partially in some participants over follow-up.",
+    "source": {
+      "authors": "Zilberman-Itskovich S, et al.",
+      "year": 2022,
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-022-15565-0"
+    }
+  }
+}
