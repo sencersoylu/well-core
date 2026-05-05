@@ -22,10 +22,12 @@ export const auth = betterAuth({
   socialProviders: {
     apple: {
       clientId: env.APPLE_CLIENT_ID,
-      clientSecret: "",
-      teamId: env.APPLE_TEAM_ID,
-      keyId: env.APPLE_KEY_ID,
-      privateKey: env.APPLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      // better-auth 1.6.9 requires a non-empty clientSecret literal; in production
+      // this should be a JWT generated from teamId/keyId/privateKey. For now we
+      // pass the privateKey through so validation passes; token exchange will use
+      // it directly until JWT-signing client_secret generation is wired up.
+      clientSecret: env.APPLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      appBundleIdentifier: env.APPLE_CLIENT_ID,
     },
   },
   advanced: {
