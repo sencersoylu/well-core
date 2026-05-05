@@ -55,6 +55,12 @@ export const TextStyles = {
     fontSize: 22,
     letterSpacing: -0.44,
   },
+  button: {
+    fontFamily: FontFamily.sansSemibold,
+    fontSize: 15,
+    letterSpacing: -0.075,
+    lineHeight: 20,
+  },
 } as const;
 
 export type TextStyleToken = keyof typeof TextStyles;
