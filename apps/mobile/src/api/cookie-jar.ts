@@ -23,7 +23,9 @@ function parseSetCookie(line: string): CookieRecord | null {
       if (Number.isFinite(t)) expiresAt = t;
     }
   }
-  return { name, value, expiresAt };
+  const rec: CookieRecord = { name, value };
+  if (expiresAt !== undefined) rec.expiresAt = expiresAt;
+  return rec;
 }
 
 async function read(): Promise<Map<string, CookieRecord>> {

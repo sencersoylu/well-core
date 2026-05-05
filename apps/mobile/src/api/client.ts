@@ -10,7 +10,7 @@ const baseUrl =
 
 export const cookieJar: CookieJar = createCookieJar();
 
-const authedFetch: typeof fetch = async (input, init = {}) => {
+const authedFetch = async (input: RequestInfo | URL, init: RequestInit = {}): Promise<Response> => {
   const headers = new Headers(init.headers ?? {});
   await cookieJar.attachCookies(headers);
   const res = await fetch(input, { ...init, headers, credentials: "omit" });
