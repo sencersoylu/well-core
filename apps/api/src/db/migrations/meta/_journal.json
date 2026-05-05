@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1777978975620,
-      "tag": "0000_wandering_skin",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1777979513830,
-      "tag": "0001_striped_toad_men",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1777999844379,
-      "tag": "0002_hot_smasher",
+      "when": 1778000566962,
+      "tag": "0000_boring_bromley",
       "breakpoints": true
     }
   ]

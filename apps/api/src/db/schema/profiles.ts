@@ -1,5 +1,5 @@
-import { pgEnum, pgTable, uuid, text, timestamp, jsonb, date } from "drizzle-orm/pg-core";
-import { users } from "./users.js";
+import { pgEnum, pgTable, text, timestamp, jsonb, date } from "drizzle-orm/pg-core";
+import { authUser } from "./auth.js";
 
 export const chamberTypeEnum = pgEnum("chamber_type", [
   "soft_1_3",
@@ -8,7 +8,7 @@ export const chamberTypeEnum = pgEnum("chamber_type", [
 ]);
 
 export const profiles = pgTable("profiles", {
-  userId: uuid("user_id").primaryKey().references(() => users.id, { onDelete: "cascade" }),
+  userId: text("user_id").primaryKey().references(() => authUser.id, { onDelete: "cascade" }),
   displayName: text("display_name"),
   dob: date("dob"),
   goals: jsonb("goals").$type<string[]>().notNull().default([]),

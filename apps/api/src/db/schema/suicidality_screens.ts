@@ -1,11 +1,11 @@
-import { integer, pgTable, uuid, timestamp, index } from "drizzle-orm/pg-core";
-import { users } from "./users.js";
+import { integer, pgTable, uuid, text, timestamp, index } from "drizzle-orm/pg-core";
+import { authUser } from "./auth.js";
 
 export const suicidalityScreens = pgTable(
   "suicidality_screens",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    userId: text("user_id").notNull().references(() => authUser.id, { onDelete: "cascade" }),
     phq9Item9Score: integer("phq9_item9_score").notNull(),
     followUpAcknowledgedAt: timestamp("follow_up_acknowledged_at", { withTimezone: true }),
     crisisResourcesShownAt: timestamp("crisis_resources_shown_at", { withTimezone: true }),

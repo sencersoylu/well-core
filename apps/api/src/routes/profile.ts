@@ -11,9 +11,9 @@ export const profileRoute = new Hono<{ Variables: AuthVariables }>()
 
   .get("/profile", async (c) => {
     const userId = c.var.user.id;
-    const [row] = await db.select().from(profiles).where(eq(profiles.userId, userId as any)).limit(1);
+    const [row] = await db.select().from(profiles).where(eq(profiles.userId, userId)).limit(1);
     if (!row) {
-      const [created] = await db.insert(profiles).values({ userId: userId as any }).returning();
+      const [created] = await db.insert(profiles).values({ userId: userId }).returning();
       return c.json(created);
     }
     return c.json(row);
@@ -30,7 +30,7 @@ export const profileRoute = new Hono<{ Variables: AuthVariables }>()
     ) as Record<string, unknown>;
     const [row] = await db
       .insert(profiles)
-      .values({ userId: userId as any, ...data })
+      .values({ userId: userId, ...data })
       .onConflictDoUpdate({ target: profiles.userId, set: { ...data, updatedAt: new Date() } })
       .returning();
     return c.json(row);
@@ -44,7 +44,7 @@ export const profileRoute = new Hono<{ Variables: AuthVariables }>()
     const now = new Date();
     const [row] = await db
       .insert(profiles)
-      .values({ userId: userId as any, acceptedDisclaimersAt: now, fireSafetyAcknowledgedAt: now })
+      .values({ userId: userId, acceptedDisclaimersAt: now, fireSafetyAcknowledgedAt: now })
       .onConflictDoUpdate({
         target: profiles.userId,
         set: { acceptedDisclaimersAt: now, fireSafetyAcknowledgedAt: now, updatedAt: now },
@@ -59,7 +59,7 @@ export const profileRoute = new Hono<{ Variables: AuthVariables }>()
     const parsed = ConsentSchema.safeParse(body);
     if (!parsed.success) return c.json({ error: "invalid_body", issues: parsed.error.issues }, 400);
     const [row] = await db.insert(consentEvents).values({
-      userId: userId as any,
+      userId: userId,
       type: parsed.data.type,
       version: parsed.data.version,
       ipAddress: c.req.header("x-forwarded-for") ?? c.req.header("x-real-ip") ?? null,

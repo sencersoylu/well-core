@@ -15,7 +15,7 @@ export const checkinsRoute = new Hono<{ Variables: AuthVariables }>()
     const parsed = CheckinCreateSchema.safeParse(body);
     if (!parsed.success) return c.json({ error: "invalid_body", issues: parsed.error.issues }, 400);
     const [row] = await db.insert(wellnessCheckins).values({
-      userId: userId as any,
+      userId: userId,
       sessionId: parsed.data.sessionId ?? null,
       checkinType: parsed.data.checkinType,
       promisGlobalPhysical: parsed.data.promisGlobalPhysical,
@@ -34,8 +34,8 @@ export const checkinsRoute = new Hono<{ Variables: AuthVariables }>()
     const q = CheckinListQuery.safeParse(Object.fromEntries(new URL(c.req.url).searchParams));
     if (!q.success) return c.json({ error: "invalid_query" }, 400);
     const where = q.data.sessionId
-      ? and(eq(wellnessCheckins.userId, userId as any), eq(wellnessCheckins.sessionId, q.data.sessionId))
-      : eq(wellnessCheckins.userId, userId as any);
+      ? and(eq(wellnessCheckins.userId, userId), eq(wellnessCheckins.sessionId, q.data.sessionId))
+      : eq(wellnessCheckins.userId, userId);
     const rows = await db.select().from(wellnessCheckins)
       .where(where).orderBy(desc(wellnessCheckins.recordedAt)).limit(q.data.limit);
     return c.json(rows);

@@ -12,7 +12,7 @@ export const privacyRoute = new Hono<{ Variables: AuthVariables }>()
     const parsed = DsarSchema.safeParse(body);
     if (!parsed.success) return c.json({ error: "invalid_body", issues: parsed.error.issues }, 400);
     const [row] = await db.insert(dsarRequests).values({
-      userId: userId as any,
+      userId: userId,
       type: parsed.data.type,
       fulfillmentNotes: parsed.data.notes ?? null,
     }).returning();

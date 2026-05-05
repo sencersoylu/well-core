@@ -11,7 +11,7 @@ export const userProtocolsRoute = new Hono<{ Variables: AuthVariables }>()
 
   .get("/me/protocols", async (c) => {
     const userId = c.var.user.id;
-    const rows = await db.select().from(userProtocols).where(eq(userProtocols.userId, userId as any));
+    const rows = await db.select().from(userProtocols).where(eq(userProtocols.userId, userId));
     return c.json(rows);
   })
 
@@ -23,7 +23,7 @@ export const userProtocolsRoute = new Hono<{ Variables: AuthVariables }>()
     const [protocol] = await db.select().from(protocols).where(eq(protocols.id, parsed.data.protocolId)).limit(1);
     if (!protocol) return c.json({ error: "protocol_not_found" }, 404);
     const [row] = await db.insert(userProtocols).values({
-      userId: userId as any,
+      userId: userId,
       protocolId: protocol.id,
       targetSessionCount: protocol.targetSessionCount,
     }).returning();
@@ -41,7 +41,7 @@ export const userProtocolsRoute = new Hono<{ Variables: AuthVariables }>()
     if (parsed.data.status === "completed") patch.completedAt = new Date();
     const [row] = await db.update(userProtocols)
       .set(patch)
-      .where(and(eq(userProtocols.id, id), eq(userProtocols.userId, userId as any)))
+      .where(and(eq(userProtocols.id, id), eq(userProtocols.userId, userId)))
       .returning();
     if (!row) return c.json({ error: "not_found" }, 404);
     return c.json(row);

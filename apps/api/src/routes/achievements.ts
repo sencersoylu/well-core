@@ -9,7 +9,7 @@ export const achievementsRoute = new Hono<{ Variables: AuthVariables }>()
   .get("/me/achievements", async (c) => {
     const userId = c.var.user.id;
     const rows = await db.select().from(achievements)
-      .where(eq(achievements.userId, userId as any))
+      .where(eq(achievements.userId, userId))
       .orderBy(desc(achievements.unlockedAt));
     return c.json(rows);
   });

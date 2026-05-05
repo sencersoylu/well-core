@@ -1,5 +1,5 @@
 import { pgEnum, pgTable, uuid, integer, text, timestamp, index } from "drizzle-orm/pg-core";
-import { users } from "./users.js";
+import { authUser } from "./auth.js";
 import { hbotSessions } from "./hbot_sessions.js";
 
 export const checkinTypeEnum = pgEnum("checkin_type", ["pre", "post"]);
@@ -8,7 +8,7 @@ export const wellnessCheckins = pgTable(
   "wellness_checkins",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    userId: text("user_id").notNull().references(() => authUser.id, { onDelete: "cascade" }),
     sessionId: uuid("session_id").references(() => hbotSessions.id, { onDelete: "set null" }),
     checkinType: checkinTypeEnum("checkin_type").notNull(),
     promisGlobalPhysical: integer("promis_global_physical").notNull(),

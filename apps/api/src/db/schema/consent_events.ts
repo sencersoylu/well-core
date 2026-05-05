@@ -1,5 +1,5 @@
 import { pgEnum, pgTable, uuid, text, timestamp, varchar, index } from "drizzle-orm/pg-core";
-import { users } from "./users.js";
+import { authUser } from "./auth.js";
 
 export const consentTypeEnum = pgEnum("consent_type", [
   "ccpa_optin",
@@ -13,7 +13,7 @@ export const consentEvents = pgTable(
   "consent_events",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    userId: text("user_id").notNull().references(() => authUser.id, { onDelete: "cascade" }),
     type: consentTypeEnum("type").notNull(),
     version: varchar("version", { length: 32 }).notNull(),
     acceptedAt: timestamp("accepted_at", { withTimezone: true }).notNull().defaultNow(),

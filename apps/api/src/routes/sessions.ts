@@ -16,7 +16,7 @@ export const sessionsRoute = new Hono<{ Variables: AuthVariables }>()
     const parsed = CreateSessionSchema.safeParse(body);
     if (!parsed.success) return c.json({ error: "invalid_body", issues: parsed.error.issues }, 400);
     const [row] = await db.insert(hbotSessions).values({
-      userId: userId as any,
+      userId: userId,
       userProtocolId: parsed.data.userProtocolId ?? null,
       pressureAta: String(parsed.data.pressureAta),
       clientState: parsed.data.clientState ?? null,
@@ -34,7 +34,7 @@ export const sessionsRoute = new Hono<{ Variables: AuthVariables }>()
     if (parsed.data.endedAt) patch.endedAt = new Date(parsed.data.endedAt);
     const [row] = await db.update(hbotSessions)
       .set(patch)
-      .where(and(eq(hbotSessions.id, id), eq(hbotSessions.userId, userId as any)))
+      .where(and(eq(hbotSessions.id, id), eq(hbotSessions.userId, userId)))
       .returning();
     if (!row) return c.json({ error: "not_found" }, 404);
     return c.json(row);
@@ -45,8 +45,8 @@ export const sessionsRoute = new Hono<{ Variables: AuthVariables }>()
     const q = ListSessionsQuery.safeParse(Object.fromEntries(new URL(c.req.url).searchParams));
     if (!q.success) return c.json({ error: "invalid_query" }, 400);
     const where = q.data.cursor
-      ? and(eq(hbotSessions.userId, userId as any), lt(hbotSessions.id, q.data.cursor))
-      : eq(hbotSessions.userId, userId as any);
+      ? and(eq(hbotSessions.userId, userId), lt(hbotSessions.id, q.data.cursor))
+      : eq(hbotSessions.userId, userId);
     const rows = await db.select().from(hbotSessions)
       .where(where).orderBy(desc(hbotSessions.startedAt)).limit(q.data.limit);
     return c.json({ items: rows, nextCursor: rows.length === q.data.limit ? rows[rows.length - 1]!.id : null });

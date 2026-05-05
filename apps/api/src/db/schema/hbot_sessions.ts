@@ -1,5 +1,5 @@
-import { pgEnum, pgTable, uuid, integer, timestamp, jsonb, numeric, index } from "drizzle-orm/pg-core";
-import { users } from "./users.js";
+import { pgEnum, pgTable, uuid, text, integer, timestamp, jsonb, numeric, index } from "drizzle-orm/pg-core";
+import { authUser } from "./auth.js";
 import { userProtocols } from "./user_protocols.js";
 
 export const sessionStatusEnum = pgEnum("session_status", [
@@ -12,7 +12,7 @@ export const hbotSessions = pgTable(
   "hbot_sessions",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    userId: text("user_id").notNull().references(() => authUser.id, { onDelete: "cascade" }),
     userProtocolId: uuid("user_protocol_id").references(() => userProtocols.id, { onDelete: "set null" }),
     startedAt: timestamp("started_at", { withTimezone: true }).notNull().defaultNow(),
     endedAt: timestamp("ended_at", { withTimezone: true }),
