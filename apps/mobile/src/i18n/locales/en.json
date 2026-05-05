@@ -7,5 +7,10 @@
     "continue": "Continue",
     "back": "Back",
     "skip": "Skip"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "fazStub": "More features coming soon.",
+    "signOut": "Sign Out"
   }
 }

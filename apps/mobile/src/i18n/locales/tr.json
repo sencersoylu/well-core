@@ -7,5 +7,10 @@
     "continue": "Devam et",
     "back": "Geri",
     "skip": "Atla"
+  },
+  "home": {
+    "welcome": "Hoş geldin, {{name}}",
+    "fazStub": "Daha fazla özellik yakında.",
+    "signOut": "Çıkış Yap"
   }
 }
