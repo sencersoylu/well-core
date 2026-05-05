@@ -106,3 +106,36 @@ Postgres is mapped to host port **5434** (avoids local Homebrew PG14 conflict on
 - `consent_events` records every CCPA / MHMDA / MODPA / Terms / Privacy acceptance with version + IP + UA.
 - `dsar_requests` logs CCPA Data Subject Access Requests; fulfillment is manual for v1.
 - `wellness_checkins` uses **structured PROMIS-aligned columns** (NOT a free-form jsonb blob).
+
+## Mobile (apps/mobile) — Onboarding
+
+The mobile app uses Apple **web** OAuth (NOT native identityToken — known better-auth bugs), persists session cookies in `expo-secure-store`, and persists intermediate onboarding state so users can resume on relaunch.
+
+### Bring up
+
+```bash
+docker compose -f ops/docker-compose.yml up -d
+pnpm --filter @wellcore/api db:migrate && pnpm --filter @wellcore/api db:seed
+pnpm --filter @wellcore/api dev    # terminal A
+pnpm --filter @wellcore/mobile dev # terminal B
+```
+
+### Env
+
+- `EXPO_PUBLIC_API_URL` (optional) — defaults to LAN IP from `expoConfig.hostUri:3000`.
+- Apple OAuth client must be configured on the backend (`APPLE_CLIENT_ID`, `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY`).
+
+### Onboarding flow
+
+Welcome → Apple sign-in → Goals (max 5) → Chamber type → Fire safety (non-skippable, FDA Aug 2025) → Disclaimer → Health cards 1-5 (hard contraindications) → cards 6-7 (soft warnings) → PHQ-9 Item 9 (≥ 1 → mandatory crisis resources screen + suicidality log) → Consent (5 acceptances) → Locale → Profile → Preview → Done (batch commits) → /home.
+
+### Crisis & contraindications
+
+- Cards 1-5 YES → `/onboarding/hard-stop` (terminal — exits to declined page).
+- Cards 6-7 YES → soft warning banner, allows continue.
+- PHQ-9 Item 9 ≥ 1 → mandatory `CrisisResourcesScreen` + `POST /me/suicidality` server log.
+
+### Persistence
+
+- Onboarding store key: `wellcore.onboarding.v1` in `expo-secure-store`.
+- Cookie jar key: `wellcore.cookies.v1`. Force-quit + relaunch resumes on the same screen with state intact.
