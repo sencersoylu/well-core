@@ -20,7 +20,10 @@
       "usesAppleSignIn": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
-      }
+      },
+      "associatedDomains": [
+        "applinks:wellcore.app"
+      ]
     },
     "android": {
       "package": "com.sencersoylu.wellcore",
@@ -29,17 +32,37 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#f6f4ef"
-      }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "wellcore",
+              "host": "auth"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "plugins": [
       "expo-router",
       "expo-font",
       "expo-secure-store",
-      ["expo-splash-screen", {
-        "backgroundColor": "#f6f4ef",
-        "image": "./assets/splash-icon.png",
-        "imageWidth": 200
-      }]
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#f6f4ef",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
