@@ -9,3 +9,5 @@ export * from "./wellness_checkins.js";
 export * from "./achievements.js";
 export * from "./subscription.js";
 export * from "./dsar_requests.js";
+export * from "./auth.js";
+
