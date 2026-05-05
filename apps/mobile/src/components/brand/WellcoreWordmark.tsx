@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
-import { WellcoreMark, type MarkSize } from "../WellcoreMark.js";
-import { Colors, FontFamily } from "../../theme/index.js";
+import { WellcoreMark, type MarkSize } from "../WellcoreMark";
+import { Colors, FontFamily } from "../../theme/index";
 
 type Props = {
   size?: MarkSize;

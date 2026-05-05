@@ -1,5 +1,5 @@
 import { Pressable, Text, View, StyleSheet } from "react-native";
-import { Colors, Spacing, TextStyles, Radius } from "../../theme/index.js";
+import { Colors, Spacing, TextStyles, Radius } from "../../theme/index";
 
 export type ChamberType = "soft_1_3" | "hard_1_5" | "hard_2_0_plus";
 

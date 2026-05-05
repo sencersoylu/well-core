@@ -5,7 +5,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 echo "→ starting docker infra"
-docker compose -f ops/docker-compose.yml up -d --wait
+docker compose -f ops/docker-compose.yml up -d --wait postgres minio
+docker compose -f ops/docker-compose.yml up -d minio-init
 
 echo "→ starting api + mobile (turbo --parallel)"
 pnpm turbo run dev --parallel

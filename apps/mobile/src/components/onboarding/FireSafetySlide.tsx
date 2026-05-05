@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { Colors, Spacing, TextStyles, Radius } from "../../theme/index.js";
-import { IconCheck } from "../icons/index.js";
+import { Colors, Spacing, TextStyles, Radius } from "../../theme/index";
+import { IconCheck } from "../icons/index";
 
 const RULES: { title: string; body: string }[] = [
   { title: "100% cotton clothing only", body: "No synthetic fabrics, no nylon, no polyester. Static buildup is the leading fire risk inside oxygen-rich chambers." },

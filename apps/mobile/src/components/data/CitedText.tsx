@@ -1,7 +1,7 @@
 import { Pressable, Text, type TextStyle, type StyleProp } from "react-native";
 import { getCitation, type CitationTag } from "@wellcore/shared/citations";
-import { Colors, TextStyles } from "../../theme/index.js";
-import { useCitation } from "./CitationProvider.js";
+import { Colors, TextStyles } from "../../theme/index";
+import { useCitation } from "./CitationProvider";
 
 type Props = {
   /** Inline content (the prose that the citation backs up) */

@@ -1,6 +1,6 @@
 import { View, type StyleProp, type ViewStyle } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Gradients } from "../../theme/index.js";
+import { Gradients } from "../../theme/index";
 
 type Variant = "hero" | "paperBloom";
 

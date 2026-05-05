@@ -1,6 +1,6 @@
 import { View, type StyleProp, type ViewStyle } from "react-native";
 import { evidenceLevelToDots, type EvidenceLevel } from "@wellcore/shared/evidence";
-import { Colors } from "../../theme/index.js";
+import { Colors } from "../../theme/index";
 
 type Props = {
   level: EvidenceLevel;

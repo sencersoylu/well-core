@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Linking, Text, View, StyleSheet, Pressable } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import { Colors, Spacing, TextStyles, Radius } from "../../theme/index.js";
-import { useCitation } from "./CitationProvider.js";
+import { Colors, Spacing, TextStyles, Radius } from "../../theme/index";
+import { useCitation } from "./CitationProvider";
 
 export function CitationModal() {
   const { current, close } = useCitation();

@@ -1,5 +1,5 @@
 import { Linking, Pressable, Text, View, StyleSheet } from "react-native";
-import { Colors, Spacing, TextStyles, Radius, FontFamily } from "../../theme/index.js";
+import { Colors, Spacing, TextStyles, Radius, FontFamily } from "../../theme/index";
 
 type Resource = {
   region: string;

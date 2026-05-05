@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
-import { i18next, type Lang } from "../src/i18n/index.js";
-import { WellcoreMark } from "../src/components/WellcoreMark.js";
-import { Colors, Spacing, TextStyles } from "../src/theme/index.js";
-import { api } from "../src/api/client.js";
+import { i18next, type Lang } from "../src/i18n/index";
+import { WellcoreMark } from "../src/components/WellcoreMark";
+import { Colors, Spacing, TextStyles } from "../src/theme/index";
+import { api } from "../src/api/client";
 
 export default function Index() {
   const { t } = useTranslation();
