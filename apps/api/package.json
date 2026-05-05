@@ -15,8 +15,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "clean": "rm -rf dist .turbo",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "bun ../../node_modules/.bin/drizzle-kit generate",
+    "db:migrate": "bun ../../node_modules/.bin/drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "db:seed": "bun run src/db/seed.ts"
   },
