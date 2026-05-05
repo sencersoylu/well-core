@@ -30,12 +30,12 @@ describe("onboarding store", () => {
 
   test("hydrate roundtrips through secure store", async () => {
     useOnboardingStore.getState().setGoals(["recovery", "wellness"]);
-    useOnboardingStore.getState().setChamberType("hard_2_0");
+    useOnboardingStore.getState().setChamberType("hard_2_0_plus");
     await useOnboardingStore.getState().persistNow();
     useOnboardingStore.getState().reset();
     expect(useOnboardingStore.getState().goals).toEqual([]);
     await useOnboardingStore.getState().hydrate();
     expect(useOnboardingStore.getState().goals).toEqual(["recovery", "wellness"]);
-    expect(useOnboardingStore.getState().chamberType).toBe("hard_2_0");
+    expect(useOnboardingStore.getState().chamberType).toBe("hard_2_0_plus");
   });
 });

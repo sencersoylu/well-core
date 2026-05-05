@@ -9,7 +9,7 @@ export type GoalId =
   | "neuro_recovery" | "athletic_performance" | "radiance"
   | "anti_aging" | "vitality";
 
-export type ChamberType = "soft_1_3" | "hard_1_5" | "hard_2_0";
+export type ChamberType = "soft_1_3" | "hard_1_5" | "hard_2_0_plus";
 
 export type HealthCardId =
   | "pregnancy" | "pneumothorax" | "ear_surgery" | "active_malignancy"
