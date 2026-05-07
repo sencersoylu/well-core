@@ -13,6 +13,8 @@
     "fazStub": "More features coming soon.",
     "signOut": "Sign Out"
   },
+  "app": {},
+  "session": {},
   "onboarding": {
     "welcome": {
       "tagline": "Hyperbaric oxygen, with care.",
