@@ -7,5 +7,88 @@
     "continue": "Devam et",
     "back": "Geri",
     "skip": "Atla"
+  },
+  "home": {
+    "welcome": "Hoş geldin, {{name}}",
+    "fazStub": "Daha fazla özellik yakında.",
+    "signOut": "Çıkış Yap"
+  },
+  "onboarding": {
+    "welcome": {
+      "tagline": "Hiperbarik oksijen, özenle.",
+      "subtitle": "Kanıta dayalı HBOT desteği — FDA Ağustos 2025 rehberi esas alınarak.",
+      "signIn": "Apple ile giriş yap",
+      "alreadyMember": "Zaten üye misiniz? Apple ile giriş oturumunuzu geri getirir."
+    },
+    "goals": {
+      "title": "HBOT'a seni getiren ne?",
+      "subtitle": "En fazla 5 seç. Protokolleri ve takipleri bunlara göre eşleştireceğiz.",
+      "max": "En fazla 5 hedef seçilebilir.",
+      "items": {
+        "recovery": "İyileşme ve yumuşak doku",
+        "wellness": "Genel sağlık ve kaygı giderme",
+        "brain_fog": "Beyin sisi",
+        "long_covid": "Uzun COVID belirtileri",
+        "neuro_recovery": "Nöro-iyileşme (hafif TBI dahil)",
+        "athletic_performance": "Atletik performans",
+        "radiance": "Cilt parlaklığı",
+        "anti_aging": "Sağlıklı yaşlanma",
+        "vitality": "Günlük canlılık"
+      },
+      "medicalDisclaimer": "Bazı hedefler tıbbi durumları tanımlamaktadır. Biz tıbbi bir hizmet değiliz — doktorunuzla koordineli hareket edin."
+    },
+    "chamber": {
+      "title": "Hangi kabini kullanacaksınız?",
+      "subtitle": "Bu, protokol eşleştirme ve güvenlik rehberliğini belirler.",
+      "soft_1_3": "Yumuşak 1,3 ATA",
+      "hard_1_5": "Sert 1,5 ATA",
+      "hard_2_0": "Sert 2,0 ATA veya üzeri"
+    },
+    "fireSafety": {
+      "title": "Yangın güvenliği",
+      "subtitle": "FDA Ağustos 2025 rehberi uyarınca — lütfen tamamını okuyun.",
+      "ack": "Yangın güvenliği rehberini okudum ve anladım.",
+      "continue": "Devam",
+      "scrollHint": "Onaylamak için sona kaydırın."
+    },
+    "disclaimer": {
+      "title": "Wellcore tıbbi bir hizmet değildir",
+      "body": "Wellcore bir sağlıklı yaşam yardımcısıdır. Herhangi bir hastalığı teşhis etmez, tedavi etmez, iyileştirmez veya önlemez. Her zaman doktorunuzla koordineli hareket edin.",
+      "ack": "Anladım."
+    },
+    "health": {
+      "pregnancy":         { "title": "Hamile misiniz?", "description": "Hamilelik, HBOT için bir kontrendikasyondur.", "yesLabel": "Evet", "noLabel": "Hayır", "hardStopRationale": "HBOT hamilelik sırasında kontrendikedir." },
+      "pneumothorax":      { "title": "Tedavi edilmemiş pnömotoraks?", "description": "Tedavi edilmemiş pnömotoraks mutlak bir kontrendikasyondur.", "yesLabel": "Evet", "noLabel": "Hayır", "hardStopRationale": "Tedavi edilmemiş pnömotoraks HBOT için mutlak bir kontrendikasyondur." },
+      "ear_surgery":       { "title": "Yakın zamanda kulak ameliyatı / basıncı eşitleyemiyor musunuz?", "description": "Orta kulak basıncını eşitleyememek kesin bir kontrendikasyondur.", "yesLabel": "Evet", "noLabel": "Hayır", "hardStopRationale": "Basınç eşitleme sorunları için HBOT öncesi onay gereklidir." },
+      "active_malignancy": { "title": "Aktif malignite veya kemoterapi?", "description": "Aktif kanser veya eş zamanlı kemoterapi için onkoloji onayı gereklidir.", "yesLabel": "Evet", "noLabel": "Hayır", "hardStopRationale": "HBOT öncesi onkoloji onayı gereklidir." },
+      "severe_copd":       { "title": "CO2 retansiyonlu ağır KOAH?", "description": "CO2 retansiyonu kesin bir kontrendikasyondur.", "yesLabel": "Evet", "noLabel": "Hayır", "hardStopRationale": "CO2 retansiyonlu ağır KOAH, HBOT'u kontrendike kılar." },
+      "claustrophobia":    { "title": "Belirgin klostrofobi?", "description": "Deneyimi konfor için ayarlayabiliriz.", "yesLabel": "Evet", "noLabel": "Hayır", "softWarning": "Tempoyu ayarlayacak ve nefes egzersizi desteği sunacağız." },
+      "recent_surgery":    { "title": "Yakın zamanda ameliyat veya yara iyileşmesi?", "description": "Doktorunuzla koordineli hareket edin — HBOT, gözetim altında yara iyileşmesini destekleyebilir.", "yesLabel": "Evet", "noLabel": "Hayır", "softWarning": "Devam etmeden önce doktorunuza danışın." },
+      "phq9_item9":        { "title": "Son 2 haftada, ölmeseydiniz daha iyi olurdu ya da kendinize zarar verme düşünceleriniz ne sıklıkta oldu?", "options": { "0": "Hiç olmadı", "1": "Birkaç gün", "2": "Günlerin yarısından fazlasında", "3": "Neredeyse her gün" } }
+    },
+    "consent": {
+      "title": "Onay",
+      "subtitle": "ABD gizlilik yasaları uyarınca (CCPA, MHMDA, MODPA).",
+      "terms":     "Hizmet Şartlarını kabul ediyorum",
+      "privacy":   "Gizlilik Politikasını kabul ediyorum",
+      "ccpa_sale": "Kişisel bilgilerimi satmayın veya paylaşmayın (CCPA çıkış)",
+      "mhmda":     "Tüketici sağlık verilerimin işlenmesine onay veriyorum (MHMDA / Washington)",
+      "modpa":     "Tüketici sağlık verilerimin işlenmesine onay veriyorum (MODPA / Maryland)"
+    },
+    "locale":  { "title": "Dil", "subtitle": "Bunu istediğiniz zaman Ayarlar'dan değiştirebilirsiniz." },
+    "profile": { "title": "Hakkınızda", "subtitle": "İsteğe bağlı. Takipleri kişiselleştirmemize yardımcı olur.", "name": "Görünen ad", "dob": "Doğum tarihi (isteğe bağlı)" },
+    "preview": { "title": "Seans öncesi takip soruları", "subtitle": "Her seans öncesinde 4 kısa soru soracağız (PROMIS uyumlu). 30 saniye." },
+    "done":    { "title": "Hazırsınız.", "subtitle": "Wellcore'a girmek için aşağıya dokunun.", "cta": "Wellcore'a Gir" },
+    "hardStop":{ "title": "HBOT sizin için uygun olmayabilir", "subtitle": "Yanıtlarınıza göre duraklamanızı ve doktorunuzla koordineli hareket etmenizi öneririz.", "exit": "Wellcore'dan Çık" },
+    "crisis":  { "title": "Yanınızdayız" },
+    "common": {
+      "back": "Geri",
+      "continue": "Devam",
+      "acknowledge": "Onaylıyorum",
+      "skip": "Atla",
+      "yes": "Evet",
+      "no": "Hayır",
+      "decline": "Reddet"
+    }
   }
 }

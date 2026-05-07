@@ -10,6 +10,7 @@ import { protocolsRoute } from "./routes/protocols.js";
 import { sessionsRoute } from "./routes/sessions.js";
 import { uploadsRoute } from "./routes/uploads.js";
 import { userProtocolsRoute } from "./routes/user-protocols.js";
+import { suicidalityRoute } from "./routes/suicidality.js";
 
 export const app = new Hono()
   .get("/health", (c) => c.json({ ok: true, version: APP_VERSION }))
@@ -22,6 +23,7 @@ export const app = new Hono()
   .route("/", achievementsRoute)
   .route("/", uploadsRoute)
   .route("/", citationsRoute)
-  .route("/", privacyRoute);
+  .route("/", privacyRoute)
+  .route("/", suicidalityRoute);
 
 export type AppType = typeof app;

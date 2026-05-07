@@ -7,5 +7,88 @@
     "continue": "Continue",
     "back": "Back",
     "skip": "Skip"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "fazStub": "More features coming soon.",
+    "signOut": "Sign Out"
+  },
+  "onboarding": {
+    "welcome": {
+      "tagline": "Hyperbaric oxygen, with care.",
+      "subtitle": "Evidence-led HBOT support — built on FDA Aug 2025 guidance.",
+      "signIn": "Sign in with Apple",
+      "alreadyMember": "Already a member? Apple Sign-In recovers your session."
+    },
+    "goals": {
+      "title": "What brings you to HBOT?",
+      "subtitle": "Pick up to 5. We'll match protocols + check-ins to these.",
+      "max": "Maximum 5 goals selected.",
+      "items": {
+        "recovery": "Recovery & soft tissue",
+        "wellness": "General wellness & anxiety relief",
+        "brain_fog": "Brain fog",
+        "long_covid": "Long-COVID symptoms",
+        "neuro_recovery": "Neuro-recovery (incl. mild TBI)",
+        "athletic_performance": "Athletic performance",
+        "radiance": "Skin radiance",
+        "anti_aging": "Healthy aging",
+        "vitality": "Day-to-day vitality"
+      },
+      "medicalDisclaimer": "Some goals describe medical conditions. We are not a medical service — coordinate with your clinician."
+    },
+    "chamber": {
+      "title": "Which chamber will you use?",
+      "subtitle": "This drives protocol matching and safety guidance.",
+      "soft_1_3": "Soft 1.3 ATA",
+      "hard_1_5": "Hard 1.5 ATA",
+      "hard_2_0": "Hard 2.0 ATA or higher"
+    },
+    "fireSafety": {
+      "title": "Fire safety",
+      "subtitle": "Per FDA Aug 2025 guidance — please read fully.",
+      "ack": "I have read and understood the fire safety guidance.",
+      "continue": "Continue",
+      "scrollHint": "Scroll to the end to acknowledge."
+    },
+    "disclaimer": {
+      "title": "Wellcore is not a medical service",
+      "body": "Wellcore is a wellness companion. We do not diagnose, treat, cure, or prevent any disease. Always coordinate with your clinician.",
+      "ack": "I understand."
+    },
+    "health": {
+      "pregnancy":         { "title": "Are you pregnant?", "description": "Pregnancy is a contraindication to HBOT.", "yesLabel": "Yes", "noLabel": "No", "hardStopRationale": "HBOT is contraindicated during pregnancy." },
+      "pneumothorax":      { "title": "Untreated pneumothorax?", "description": "Untreated pneumothorax is an absolute contraindication.", "yesLabel": "Yes", "noLabel": "No", "hardStopRationale": "Untreated pneumothorax is an absolute contraindication to HBOT." },
+      "ear_surgery":       { "title": "Recent ear surgery / unable to equalize?", "description": "Inability to equalize middle ear pressure is a hard contraindication.", "yesLabel": "Yes", "noLabel": "No", "hardStopRationale": "Equalization issues require clearance before HBOT." },
+      "active_malignancy": { "title": "Active malignancy or current chemotherapy?", "description": "Active cancer or concurrent chemotherapy requires oncology clearance.", "yesLabel": "Yes", "noLabel": "No", "hardStopRationale": "Oncology clearance required before HBOT." },
+      "severe_copd":       { "title": "Severe COPD with CO2 retention?", "description": "CO2 retention is a hard contraindication.", "yesLabel": "Yes", "noLabel": "No", "hardStopRationale": "Severe COPD with CO2 retention contraindicates HBOT." },
+      "claustrophobia":    { "title": "Significant claustrophobia?", "description": "We can adjust the experience for comfort.", "yesLabel": "Yes", "noLabel": "No", "softWarning": "We'll adjust pacing and offer breathing aids." },
+      "recent_surgery":    { "title": "Recent surgery or wound healing?", "description": "Coordinate with your clinician — HBOT can support wound healing under supervision.", "yesLabel": "Yes", "noLabel": "No", "softWarning": "Coordinate with your clinician before continuing." },
+      "phq9_item9":        { "title": "Over the last 2 weeks, how often have you had thoughts that you would be better off dead, or of hurting yourself in some way?", "options": { "0": "Not at all", "1": "Several days", "2": "More than half the days", "3": "Nearly every day" } }
+    },
+    "consent": {
+      "title": "Consent",
+      "subtitle": "Per US privacy laws (CCPA, MHMDA, MODPA).",
+      "terms":     "I accept the Terms of Service",
+      "privacy":   "I accept the Privacy Policy",
+      "ccpa_sale": "Do NOT sell or share my personal information (CCPA opt-out)",
+      "mhmda":     "I consent to processing of my consumer health data (MHMDA / Washington)",
+      "modpa":     "I consent to processing of my consumer health data (MODPA / Maryland)"
+    },
+    "locale":  { "title": "Language", "subtitle": "You can change this any time in Settings." },
+    "profile": { "title": "About you", "subtitle": "Optional. Helps us personalize check-ins.", "name": "Display name", "dob": "Date of birth (optional)" },
+    "preview": { "title": "Pre-session check-ins", "subtitle": "Before each session, we'll ask 4 short questions (PROMIS-aligned). 30 seconds." },
+    "done":    { "title": "You're set.", "subtitle": "Tap below to enter Wellcore.", "cta": "Enter Wellcore" },
+    "hardStop":{ "title": "HBOT may not be right for you", "subtitle": "Based on your answers, we recommend pausing and coordinating with your clinician.", "exit": "Exit Wellcore" },
+    "crisis":  { "title": "We're here for you" },
+    "common": {
+      "back": "Back",
+      "continue": "Continue",
+      "acknowledge": "Acknowledge",
+      "skip": "Skip",
+      "yes": "Yes",
+      "no": "No",
+      "decline": "Decline"
+    }
   }
 }
